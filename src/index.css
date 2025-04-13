@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Language Selector Animations */
+/* Animation for fade-in effect */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -22,9 +22,4 @@
 [dir='rtl'] .dropdown-menu {
   left: 0;
   right: auto;
-}
-
-/* Language Transition */
-.lang-transition {
-  transition: opacity 0.3s ease;
 }

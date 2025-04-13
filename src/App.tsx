@@ -12,8 +12,6 @@ import Volunteers from './pages/Volunteers';
 import Auth from './pages/Auth';
 import Profile from './pages/Profile';
 import Footer from './components/Footer';
-import LanguageProvider from './components/LanguageProvider';
-import TranslationDemo from './components/TranslationDemo';
 
 // Create auth context
 export const AuthContext = createContext<{
@@ -57,28 +55,25 @@ function App() {
 
   return (
     <AuthContext.Provider value={{ user, loading }}>
-      <LanguageProvider>
-        <Router>
-          <div className="min-h-screen flex flex-col bg-gray-50">
-            <Navbar />
-            <main className="flex-grow pt-16">
-              <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/dashboard" element={<Dashboard />} />
-                <Route path="/incidents" element={<Incidents />} />
-                <Route path="/resources" element={<Resources />} />
-                <Route path="/volunteers" element={<Volunteers />} />
-                <Route path="/auth" element={<Auth />} />
-                <Route path="/profile" element={user ? <Profile /> : <Navigate to="/auth" replace />} />
-                <Route path="/translation-demo" element={<TranslationDemo />} />
-                <Route path="*" element={<Navigate to="/" replace />} />
-              </Routes>
-            </main>
-            <Footer />
-            <Toaster position="top-right" />
-          </div>
-        </Router>
-      </LanguageProvider>
+      <Router>
+        <div className="min-h-screen flex flex-col bg-gray-50">
+          <Navbar />
+          <main className="flex-grow pt-16">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/incidents" element={<Incidents />} />
+              <Route path="/resources" element={<Resources />} />
+              <Route path="/volunteers" element={<Volunteers />} />
+              <Route path="/auth" element={<Auth />} />
+              <Route path="/profile" element={user ? <Profile /> : <Navigate to="/auth" replace />} />
+              <Route path="*" element={<Navigate to="/" replace />} />
+            </Routes>
+          </main>
+          <Footer />
+          <Toaster position="top-right" />
+        </div>
+      </Router>
     </AuthContext.Provider>
   );
 }

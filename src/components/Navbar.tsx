@@ -1,17 +1,14 @@
 import React, { useContext, useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { AlertCircle, Box, Users, LayoutDashboard, User, LogIn, Menu, X, Globe } from 'lucide-react';
+import { AlertCircle, Box, Users, LayoutDashboard, User, LogIn, Menu, X } from 'lucide-react';
 import { AuthContext } from '../App';
 import NotificationCenter from './NotificationCenter';
-import LanguageSelector from './LanguageSelector';
-import { useTranslation } from 'react-i18next';
 
 function Navbar() {
   const location = useLocation();
   const { user, loading } = useContext(AuthContext);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const { t } = useTranslation();
   
   useEffect(() => {
     const handleScroll = () => {
@@ -37,14 +34,11 @@ function Navbar() {
         <div className="flex items-center justify-between h-16">
           <Link to="/" className="flex items-center space-x-2 font-bold text-xl transition-transform hover:scale-105">
             <AlertCircle className="h-6 w-6" />
-            <span>{t('common.appName')}</span>
+            <span>ReliefConnect</span>
           </Link>
           
           {/* Mobile menu button */}
-          <div className="flex items-center md:hidden">
-            <div className="mr-2">
-              <LanguageSelector />
-            </div>
+          <div className="md:hidden">
             <button
               type="button"
               className="p-2 rounded-md hover:bg-primary-600 focus:outline-none"
@@ -65,7 +59,7 @@ function Navbar() {
               className={`flex items-center space-x-1 px-3 py-2 rounded-md text-sm font-medium transition-colors hover:bg-primary-400 ${isActive('/')}`}
             >
               <LayoutDashboard className="h-4 w-4" />
-              <span>{t('nav.dashboard')}</span>
+              <span>Dashboard</span>
             </Link>
             
             <Link
@@ -73,7 +67,7 @@ function Navbar() {
               className={`flex items-center space-x-1 px-3 py-2 rounded-md text-sm font-medium transition-colors hover:bg-primary-400 ${isActive('/incidents')}`}
             >
               <AlertCircle className="h-4 w-4" />
-              <span>{t('nav.incidents')}</span>
+              <span>Incidents</span>
             </Link>
             
             <Link
@@ -81,7 +75,7 @@ function Navbar() {
               className={`flex items-center space-x-1 px-3 py-2 rounded-md text-sm font-medium transition-colors hover:bg-primary-400 ${isActive('/resources')}`}
             >
               <Box className="h-4 w-4" />
-              <span>{t('nav.resources')}</span>
+              <span>Resources</span>
             </Link>
             
             <Link
@@ -89,15 +83,7 @@ function Navbar() {
               className={`flex items-center space-x-1 px-3 py-2 rounded-md text-sm font-medium transition-colors hover:bg-primary-400 ${isActive('/volunteers')}`}
             >
               <Users className="h-4 w-4" />
-              <span>{t('nav.volunteers')}</span>
-            </Link>
-            
-            <Link
-              to="/translation-demo"
-              className={`flex items-center space-x-1 px-3 py-2 rounded-md text-sm font-medium transition-colors hover:bg-primary-400 ${isActive('/translation-demo')}`}
-            >
-              <Globe className="h-4 w-4" />
-              <span>Translation Demo</span>
+              <span>Volunteers</span>
             </Link>
             
             {!loading && (
@@ -110,7 +96,7 @@ function Navbar() {
                     className={`flex items-center space-x-1 px-3 py-2 rounded-md text-sm font-medium transition-colors hover:bg-primary-400 ${isActive('/profile')}`}
                   >
                     <User className="h-4 w-4" />
-                    <span>{t('nav.profile')}</span>
+                    <span>Profile</span>
                   </Link>
                 ) : (
                   <Link
@@ -118,13 +104,9 @@ function Navbar() {
                     className={`flex items-center space-x-1 px-3 py-2 rounded-md text-sm font-medium transition-colors hover:bg-primary-400 ${isActive('/auth')}`}
                   >
                     <LogIn className="h-4 w-4" />
-                    <span>{t('auth.signIn')}</span>
+                    <span>Sign In</span>
                   </Link>
                 )}
-
-                <div className="ml-2">
-                  <LanguageSelector />
-                </div>
               </>
             )}
           </div>
@@ -141,7 +123,7 @@ function Navbar() {
               onClick={() => setMobileMenuOpen(false)}
             >
               <LayoutDashboard className="h-4 w-4" />
-              <span>{t('nav.dashboard')}</span>
+              <span>Dashboard</span>
             </Link>
             
             <Link
@@ -150,7 +132,7 @@ function Navbar() {
               onClick={() => setMobileMenuOpen(false)}
             >
               <AlertCircle className="h-4 w-4" />
-              <span>{t('nav.incidents')}</span>
+              <span>Incidents</span>
             </Link>
             
             <Link
@@ -159,7 +141,7 @@ function Navbar() {
               onClick={() => setMobileMenuOpen(false)}
             >
               <Box className="h-4 w-4" />
-              <span>{t('nav.resources')}</span>
+              <span>Resources</span>
             </Link>
             
             <Link
@@ -168,16 +150,7 @@ function Navbar() {
               onClick={() => setMobileMenuOpen(false)}
             >
               <Users className="h-4 w-4" />
-              <span>{t('nav.volunteers')}</span>
-            </Link>
-            
-            <Link
-              to="/translation-demo"
-              className={`flex items-center space-x-1 px-3 py-2 rounded-md text-sm font-medium hover:bg-primary-400 ${isActive('/translation-demo')}`}
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              <Globe className="h-4 w-4" />
-              <span>Translation Demo</span>
+              <span>Volunteers</span>
             </Link>
             
             {!loading && user ? (
@@ -187,7 +160,7 @@ function Navbar() {
                 onClick={() => setMobileMenuOpen(false)}
               >
                 <User className="h-4 w-4" />
-                <span>{t('nav.profile')}</span>
+                <span>Profile</span>
               </Link>
             ) : (
               <Link
@@ -196,7 +169,7 @@ function Navbar() {
                 onClick={() => setMobileMenuOpen(false)}
               >
                 <LogIn className="h-4 w-4" />
-                <span>{t('auth.signIn')}</span>
+                <span>Sign In</span>
               </Link>
             )}
           </div>
