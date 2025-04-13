@@ -1,0 +1,66 @@
+{
+  "common": {
+    "languageName": "English",
+    "appName": "ReliefConnect",
+    "selectLanguage": "Select Language"
+  },
+  "nav": {
+    "home": "Home",
+    "dashboard": "Dashboard",
+    "incidents": "Incidents",
+    "resources": "Resources",
+    "volunteers": "Volunteers",
+    "profile": "Profile"
+  },
+  "resources": {
+    "title": "Resources",
+    "addResource": "Add Resource",
+    "searchPlaceholder": "Search resources...",
+    "filterByType": "Filter by type",
+    "filterByStatus": "Filter by status",
+    "edit": "Edit",
+    "delete": "Delete",
+    "confirmDelete": "Are you sure you want to delete this resource?",
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "noResources": "No resources found",
+    "noResourcesFiltered": "No resources match your filters",
+    "available": "Available",
+    "allocated": "Allocated",
+    "depleted": "Depleted",
+    "quantity": "Quantity",
+    "location": "Location"
+  },
+  "incidents": {
+    "title": "Incidents",
+    "addIncident": "Add Incident",
+    "active": "Active",
+    "resolved": "Resolved",
+    "severity": "Severity",
+    "high": "High",
+    "medium": "Medium",
+    "low": "Low"
+  },
+  "volunteers": {
+    "title": "Volunteers",
+    "addVolunteer": "Add Volunteer",
+    "skills": "Skills",
+    "available": "Available",
+    "onDuty": "On Duty",
+    "inactive": "Inactive"
+  },
+  "teams": {
+    "title": "Teams",
+    "createTeam": "Create Team",
+    "members": "Members",
+    "leader": "Team Leader"
+  },
+  "auth": {
+    "signIn": "Sign In",
+    "signUp": "Sign Up",
+    "signOut": "Sign Out",
+    "email": "Email",
+    "password": "Password",
+    "forgotPassword": "Forgot Password?"
+  }
+} 
